@@ -1,0 +1,18 @@
+
+#include "math.h"
+
+double series(double x, double eps)
+{
+    double a=2*x, n=1, sum=a;
+    x = x*x;
+    //printf("\n\n\ta=%.2lf, n=%.2lf, sum=%.2lf, eps=%.6lf", a, n-1, sum, eps);
+    while(fabs(a)>eps)
+    {
+        a = a*(2*x)/(2*n*n+n);
+        sum = sum+a;
+        n = n+1;
+        //printf("\n\ta=%.2lf, abs(a)=%.10lf  n=%.2lf, sum=%.2lf, eps=%.6lf", a, fabs(a), n-1, sum, eps);
+    }
+    //printf("\n\n\teps=%.6lf, sum=%.8lf", eps, sum);
+    return sum;
+}
